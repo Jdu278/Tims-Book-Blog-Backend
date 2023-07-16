@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import config from './config';
 import { enviroments } from './environments';
 import { UsersModule } from './users/users.module';
+import { BooksModule } from './books/books.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { UsersModule } from './users/users.module';
     }),
     UsersModule,
     AuthModule,
+    BooksModule,
   ],
   controllers: [],
   providers: [],
