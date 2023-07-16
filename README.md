@@ -1,34 +1,15 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Backend Book Blog
 
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+### Installation
+- docker compose up
+- npm run dev
+- npm install
 
-1. Clone the repository:
-
-   `git clone git@github.com:jordicher/nestjs-typeorm-auth-template.git`
-
-2. Open a terminal in the repository API folder:
-
-   `cd nestjs-typeorm-auth-template`
-
-3. Install dependencies:
-
-   `npm install`
-
-## Project configuration
-
-1. Copy the `.env.example` file to `.env` in the same root folder:
-
-   `cp .env.example .env`
-
+## Configuration
 2. As it is, it should work, but you can change these parameters:
 
    - `ACCESS_TOKEN_EXPIRATION`: expiration time of the JWT access token
@@ -94,25 +75,6 @@ $ npm run migration:generate name_new_migration
 ```
 $ npm run migration:run
 ```
-
-## Documentation
-
-This template uses swagger for documentation.
-To see swagger, if you are using port 8080 for the api, it would be for example => localhost:8080/docs
-
-![imagen](https://user-images.githubusercontent.com/56872592/162640131-e28b39fc-a778-4718-b5aa-93fa62ec1daf.png)
-
-## Endpoint security
-
-This template uses jwt tokens and refresh tokens.
-
-To make a route public for everyone you have to add the @Public decorator above the endpoint. Example, users.controller.ts / endpoint post, /users.
-
-We can put three types of validations on the endpoints.
-
-- That it has a valid token, access-token.
-- That it has a valid token and is role x, example delete user can only be done by the admin role, Roles decorator.
-- That the refresh token is valid.
 
 ## How refresh tokens work
 
