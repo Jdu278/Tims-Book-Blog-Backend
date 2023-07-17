@@ -15,6 +15,6 @@ export class BooksController {
 
   @Get(':id')
   getOneBook(@Param('id') id: string) {
-    return this.booksService.getOneBook(+id);
+    return this.booksService.getOneBook(id);
   }
 }
