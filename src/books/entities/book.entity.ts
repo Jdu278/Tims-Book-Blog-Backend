@@ -1,52 +1,60 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  PrimaryColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Optional } from '@nestjs/common';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity('Book')
 export class Book {
-  @PrimaryColumn('uuid')
-  id: string;
+  @PrimaryColumn()
+  importId: string;
 
+  @Optional()
+  @Column({ nullable: true })
+  title?: string;
+
+  @Optional()
+  @Column({ nullable: true })
+  authors?: string;
+
+  @Optional()
+  @Column({ nullable: true })
+  releaseDate?: string;
+
+  @Optional()
+  @Column({ nullable: true })
+  pages?: number;
+
+  @Optional()
+  @Column({ nullable: true })
+  isbn?: string;
+
+  @Optional()
+  @Column({ nullable: true })
+  publishers?: string;
+
+  @Optional()
+  @Column({ nullable: true })
+  monthRead?: string;
+
+  @Optional()
+  @Column({ nullable: true })
+  description?: string;
+
+  @Optional()
+  @Column({ nullable: true })
+  review?: string;
+
+  @Optional()
+  @Column({ nullable: true })
+  googleId?: string;
+
+  @Optional()
+  @Column({ nullable: true })
+  image?: string;
+
+  @Optional()
   @Column()
-  title: string;
+  createdAt?: Date;
 
+  @Optional()
   @Column()
-  author: string;
-
-  @Column()
-  year: number;
-
-  @Column()
-  pages: number;
-
-  @Column()
-  isbn: string;
-
-  @Column()
-  publisher: string;
-
-  @Column()
-  monthRead: string;
-
-  @Column()
-  description: string;
-
-  @Column()
-  review: string;
-
-  @Column()
-  googleId: string;
-
-  @Column()
-  image: string;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt?: Date;
 }
