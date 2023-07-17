@@ -36,6 +36,7 @@ import { BooksModule } from './books/books.module';
           password: configService.postgres.password,
           autoLoadEntities: true,
           keepConnectionAlive: true,
+          synchronize: true,
         };
       },
     }),
