@@ -5,8 +5,10 @@ This is a [Nest.js](https://nestjs.com/) based backend to create my personal boo
 
 ## Installation
 - docker compose up
-- npm run dev
 - npm install
+- npm run start:dev
+
+You can find the swagger doc here: `http://localhost:8080/docs/`
 
 ## Configuration
 Adjust the following parameters in your env file.
