@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import * as fs from 'fs';
 import * as csv from 'fast-csv';
 import { GetOneBookResponse } from './response/GetOneBook.response';
+import { GetAllBooksResponse } from './response/GetAllBooks.response';
 
 @Injectable()
 export class BooksService {
@@ -12,9 +13,29 @@ export class BooksService {
     @InjectRepository(Book) private bookRepository: Repository<Book>,
   ) {}
 
-  async getAllBooks() {
+  async getAllBooks(): Promise<GetAllBooksResponse> {
     const allBooks = await this.bookRepository.find();
-    return allBooks;
+    const allBooksFormatted = allBooks.map((book) => {
+      const {
+        importId,
+        title,
+        authors,
+        pages,
+        publishers,
+        releaseDate,
+        image,
+      } = book;
+      return {
+        importId,
+        title,
+        authors,
+        pages,
+        publishers,
+        releaseDate,
+        image,
+      };
+    });
+    return { books: allBooksFormatted };
   }
 
   async getOneBook(id: string): Promise<GetOneBookResponse> {
