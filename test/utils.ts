@@ -4,8 +4,8 @@ import { CreateAdminDto } from '../src/users/dto/create-user.dto';
 export const userAdmin: CreateAdminDto = {
   email: 'test@example.com',
   password: '$2b$10$4KXr.qChGtoo5b8aYQNuH.L5cWLDIXz/N2ollt5vttSSquHD9Ng2C', //password = test123
-  firstName: 'Jordi',
-  lastName: 'Cher',
+  firstName: 'Maria',
+  lastName: 'Galland',
   role: Role.ADMIN,
 };
 
@@ -17,6 +17,6 @@ export const userLogin = {
 export const userCustomer = {
   email: 'test@customer.com',
   password: 'test123',
-  firstName: 'Jordi',
-  lastName: 'Cher',
+  firstName: 'Maria',
+  lastName: 'Galland',
 };

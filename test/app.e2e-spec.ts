@@ -132,13 +132,13 @@ describe('AppController (e2e)', () => {
         .send({
           email: userCustomer.email,
           password: userCustomer.password,
-          firstName: 'Jordi',
+          firstName: 'Maria',
           lastName: 'test',
         })
         .expect(200);
 
       expect(response.body.email).toBe(userCustomer.email);
-      expect(response.body.firstName).toBe('Jordi');
+      expect(response.body.firstName).toBe('Maria');
       expect(response.body.lastName).toBe('test');
     });
 
