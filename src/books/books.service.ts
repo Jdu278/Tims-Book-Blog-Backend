@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Book } from './entities/book.entity';
 import { Repository } from 'typeorm';
@@ -39,10 +39,17 @@ export class BooksService {
   }
 
   async getOneBook(id: string): Promise<GetOneBookResponse> {
+    const book = await this.bookRepository.findOne({
+      where: { importId: id },
+    });
+
+    if (!book) {
+      throw new NotFoundException(`Book with id ${id} not found.`);
+    }
+
     const { importId, title, authors, pages, publishers, releaseDate, image } =
-      await this.bookRepository.findOne({
-        where: { importId: id },
-      });
+      book;
+
     return {
       importId,
       title,
