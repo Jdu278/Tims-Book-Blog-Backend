@@ -18,5 +18,6 @@ export default registerAs('config', () => {
       refreshTokenExpiration: process.env.REFRESH_TOKEN_EXPIRATION,
       accessTokenExpiration: process.env.ACCESS_TOKEN_EXPIRATION,
     },
+    apiKey: process.env.API_KEY,
   };
 });
