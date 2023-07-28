@@ -38,6 +38,10 @@ async function bootstrap() {
       { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
       'refresh-token',
     )
+    .addBearerAuth(
+      { type: 'http', scheme: 'bearer', bearerFormat: 'uuid' },
+      'api-key',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
