@@ -1,3 +1,4 @@
+import { NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { BooksService } from './books.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
@@ -111,6 +112,24 @@ describe('BooksService', () => {
       expect(response).toEqual(expectedResponse);
       expect(mockRepository.findOne).toHaveBeenCalledWith({
         where: { importId: book.id },
+      });
+    });
+
+    it('should fail if book can not be found with given id', async () => {
+      // Given
+      const id = '4f7972ed-7093-4d71-bb73-d0734ad0e112';
+      jest.spyOn(mockRepository, 'findOne').mockReturnValue(undefined);
+
+      // When
+      const promise = service.getOneBook(id);
+
+      // Then
+      expect(promise).rejects.toThrow(NotFoundException);
+      expect(promise).rejects.toThrow(
+        new NotFoundException(`Book with id ${id} not found.`),
+      );
+      expect(mockRepository.findOne).toHaveBeenCalledWith({
+        where: { importId: id },
       });
     });
   });
