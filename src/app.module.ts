@@ -19,6 +19,7 @@ import { BooksModule } from './books/books.module';
         JWT_REFRESH_SECRET: Joi.string().required(),
         ACCESS_TOKEN_EXPIRATION: Joi.string().required(),
         REFRESH_TOKEN_EXPIRATION: Joi.string().required(),
+        API_KEY: Joi.string().required(),
       }),
       validationOptions: {
         abortEarly: true, //when true, stops validation on the first error, otherwise returns all the errors found. Defaults to true.
