@@ -72,6 +72,7 @@ export class BooksService {
         // Rename thumbnailRemoteImageUrl to image
         data.image = data.thumbnailRemoteImageUrl;
         data.pages = Number(data.pages);
+        data.importId = data.id;
 
         // Convert timestamps to Date objects
         data.createdAt = new Date(data.createdAt);
