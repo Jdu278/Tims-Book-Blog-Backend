@@ -19,5 +19,6 @@ export default registerAs('config', () => {
       accessTokenExpiration: process.env.ACCESS_TOKEN_EXPIRATION,
     },
     apiKey: process.env.API_KEY,
+    enableCors: process.env.ENABLE_CORS === 'true',
   };
 });
