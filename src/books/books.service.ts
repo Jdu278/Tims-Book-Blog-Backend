@@ -69,10 +69,12 @@ export class BooksService {
     const csvStream = csv
       .parse<Book, Partial<Book>>({ headers: true, delimiter: ';' })
       .transform((data: any) => {
-        // Rename thumbnailRemoteImageUrl to image
-        data.image = data.thumbnailRemoteImageUrl;
+        // Refactor headers to fit db scheme
+        data.image = `Cover - ${data.title}`;
         data.pages = Number(data.pages);
         data.importId = data.id;
+        data.isbn = data.isbn10;
+        data.monthRead = data.endReading;
 
         // Convert timestamps to Date objects
         data.createdAt = new Date(data.createdAt);
@@ -84,7 +86,6 @@ export class BooksService {
         books.push(data);
       })
       .on('end', async () => {
-        console.log(books);
         await this.bookRepository.save(books);
       });
 
