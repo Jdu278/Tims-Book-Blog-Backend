@@ -12,6 +12,9 @@ import { join } from 'path';
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'static'),
+    }),
     ConfigModule.forRoot({
       envFilePath: enviroments[process.env.NODE_ENV] || '.env',
       load: [config],
@@ -42,9 +45,6 @@ import { join } from 'path';
           synchronize: true,
         };
       },
-    }),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'static'),
     }),
     UsersModule,
     AuthModule,
