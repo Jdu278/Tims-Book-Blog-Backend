@@ -7,6 +7,8 @@ import config from './config';
 import { enviroments } from './environments';
 import { UsersModule } from './users/users.module';
 import { BooksModule } from './books/books.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -40,6 +42,9 @@ import { BooksModule } from './books/books.module';
           synchronize: true,
         };
       },
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'static'),
     }),
     UsersModule,
     AuthModule,
