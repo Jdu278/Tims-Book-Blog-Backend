@@ -20,3 +20,9 @@ services:
       ALLOW_IP_RANGE: '0.0.0.0/0'
     ports:
       - '5433:5432'
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
