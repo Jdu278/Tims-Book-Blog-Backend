@@ -5,7 +5,7 @@ services:
     container_name: 'backend-book-blog'
     environment:
       POSTGRES_DB: 'backend-book-blog-db'
-      POSTGRES_USER: 'postgres'
+      POSTGRES_USER: 'timschauder'
       POSTGRES_PASSWORD: 'password'
       ALLOW_IP_RANGE: '0.0.0.0/0'
     ports:
