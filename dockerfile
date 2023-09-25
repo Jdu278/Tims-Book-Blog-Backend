@@ -10,6 +10,8 @@ COPY ./static ./static
 COPY ./nest-cli.json ./
 COPY ./tsconfig.build.json ./
 COPY ./tsconfig.json ./
+COPY ormconfig.js ormconfig.js
+COPY Procfile Procfile
 COPY .env .env
 RUN npm run build
 
