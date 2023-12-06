@@ -11,7 +11,7 @@ COPY ./nest-cli.json ./
 COPY ./tsconfig.build.json ./
 COPY ./tsconfig.json ./
 COPY ormconfig.js ormconfig.js
-COPY Procfile Procfile
+COPY Books-July.csv Books-July.csv
 COPY .env .env
 RUN npm run build
 
